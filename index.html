@@ -64,6 +64,44 @@
         background-color: #333333; /* Dark background for buttons */
         color: #ffffff; /* Light text for visibility */
       }
+
+      /* New styles for responsive design */
+      body {
+        max-width: 100%; /* Ensure body does not exceed viewport width */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+      }
+
+      nav {
+        width: 100%; /* Make navigation full width */
+      }
+
+      .section-container, .skills-container, .experience-details-container {
+        width: 100%; /* Ensure sections take full width */
+        padding: 0 15px; /* Add padding for better spacing */
+      }
+
+      .skill-card {
+        width: 100%; /* Make skill cards responsive */
+        box-sizing: border-box; /* Include padding and border in width */
+      }
+
+      /* Adjustments for smaller screens */
+      @media (max-width: 768px) {
+        .toggle-button {
+          width: 60px; /* Adjust toggle button size */
+          height: 30px; /* Adjust toggle button size */
+        }
+
+        .toggle-button:before {
+          width: 25px; /* Adjust toggle button circle size */
+          height: 25px; /* Adjust toggle button circle size */
+        }
+
+        .btn {
+          width: 100%; /* Make buttons full width on mobile */
+          margin: 5px 0; /* Add margin for spacing */
+        }
+      }
     </style>
     <script>
       function toggleDarkMode() {
@@ -263,7 +301,7 @@
           </div>
         </div>
         <div class="skill-category">
-          <h2 class="experience-sub-title">Development</h2>
+          <h2 class="experience-sub-title">Frontend Development</h2>
           <div class="article-container">
             <article class="skill-card">
               <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
