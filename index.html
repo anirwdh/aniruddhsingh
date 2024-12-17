@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+      }
+      nav.dark-mode {
+        background-color: #1e1e1e;
+      }
+      /* New styles for the animated toggle button */
+      .toggle-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 70px;
+        height: 35px;
+        border-radius: 20px;
+        background: #333;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      .toggle-button:before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 29px;
+        height: 29px;
+        border-radius: 50%;
+        background: #fff;
+        transition: transform 0.3s ease;
+      }
+      .toggle-button.active {
+        background: #ffcc00; /* Change to your desired active color */
+      }
+      .toggle-button.active:before {
+        transform: translateX(35px); /* Move the toggle */
+      }
+      /* New styles for skill cards in dark mode */
+      .skill-card {
+        background-color: #1e1e1e; /* Dark background for skill cards */
+        color: #ffffff; /* White text for visibility */
+      }
+      .skill-card h3, .skill-card p {
+        color: #ffffff; /* Ensure headings and paragraphs are white */
+      }
+      /* Button styles for light mode */
+      .btn {
+        background-color: #ffffff; /* Light background for buttons */
+        color: #000000; /* Dark text for visibility */
+      }
+
+      /* Button styles for dark mode */
+      body.dark-mode .btn {
+        background-color: #333333; /* Dark background for buttons */
+        color: #ffffff; /* Light text for visibility */
+      }
+    </style>
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('dark-mode');
+        const toggleButton = document.querySelector('.toggle-button');
+        toggleButton.classList.toggle('active'); // Toggle the active class
+        // Ensure skill cards are visible in dark mode
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+          card.classList.toggle('dark-mode'); // Add dark mode class to skill cards
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="toggle-button" onclick="toggleDarkMode()"></div>
+    <nav id="desktop-nav">
+      <div class="logo">Aniruddh Singh</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Aniruddh Singh</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/ppppy.png" alt="Aniruddh profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title animate">Aniruddh Singh</h1>
+        <p class="section__text__p2">Developer || Data Engineer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('https://drive.google.com/file/d/17EQBoXoaSyI1Y1ulG9O38cSfXoqofXWG/view?usp=sharing')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/anirwdh/'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/anirwdh'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title animate">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/Subject 3 copy.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>1 year <br />Data Engineer </p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>Bachelor of Technology (BTech) in Computer Science<br /></p>
+            </div>
+          </div>
+          <div class="text-container">
+            <div class="portfolio-section">
+              <p class="text-3d">
+                <strong>I am a final-year B.Tech student</strong> with a passion for building 
+                <span class="highlight">scalable</span> and <span class="highlight">innovative solutions</span>.
+              </p>
+
+              <!-- Experience Highlight (Simplified to Line) -->
+              <p class="experience-line">
+                <strong>Data Engineering Intern at Gatividhi:</strong> Built <span class="highlight">data pipelines</span>, 
+                <span class="highlight">analytics solutions</span>, and managed <span class="highlight">databases</span> to enable 
+                <span class="highlight">insightful decision-making</span>.
+              </p>
+
+              <!-- Skills and Roles -->
+              <p class="text-3d">
+                My expertise extends to:
+                <ul class="skills-list-3d">
+                  <li><strong>Flutter Development:</strong> Crafting <span class="highlight">responsive</span> and 
+                      <span class="highlight">visually appealing</span> cross-platform mobile apps.</li>
+                  <li><strong>MERN Stack Development:</strong> Building <span class="highlight">robust</span> and 
+                      <span class="highlight">scalable</span> full-stack web applications.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="skills" class="card">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h2 class="experience-sub-title">Data Engineering</h2>
+          <div class="article-container">
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>SQL</h3>
+                <p>Advanced</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Python</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Snowflake</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Apache Spark</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Databricks</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Apache Airflow</h3>
+                <p>Basic</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h2 class="experience-sub-title">Frontend Development</h2>
+          <div class="article-container">
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>PostreSql</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>NodeJs</h3>
+                <p>Basic</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>JavaScript</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>ReactJs</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Flutter</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article class="skill-card">
+              <img src="./assets/checkmark.png" alt="Skill icon" class="icon" />
+              <div>
+                <h3>Dart</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/nutrilenz_logoopy.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">NutriLenz</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/anirwdh/Nutrilenz'"
+              >
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/MindMattepy.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Mind Matter</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/anirwdh/Mind_Matter'"
+              >
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/yanalopy.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Youtube Analysis-DataEngineering</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/anirwdh/youtube_analysis_dataengineering'"
+              >
+                Github
+              </button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <button class="btn btn-color-1" onclick="toggleEmail()">Show Email</button>
+          <p id="email" style="display: none;">aniruddhsingh9397@gmail.com</p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/anirwdh/" target="_blank">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2023 Aniruddh Singh. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <div class="background-wrapper"></div>
+  </body>
+</html>

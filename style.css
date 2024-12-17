@@ -1,0 +1,743 @@
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Define CSS variables for light and dark themes */
+:root {
+    --background-light: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    --background-dark: linear-gradient(to bottom, #1a1a1a, #333333);
+    --text-light: rgb(85, 85, 85);
+    --text-dark: white;
+    --link-color-light: black;
+    --link-color-dark: #007BFF;
+    --button-background-light: linear-gradient(45deg, #6a11cb, #2575fc);
+    --button-background-dark: linear-gradient(45deg, #4a4a4a, #1a1a1a);
+}
+
+/* 3D Background Animation */
+@keyframes backgroundAnimation {
+    0% {
+        transform: translateZ(0);
+    }
+    50% {
+        transform: translateZ(-50px);
+    }
+    100% {
+        transform: translateZ(0);
+    }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--background-light);
+  color: var(--text-light);
+  animation: backgroundAnimation 10s infinite alternate;
+  perspective: 1000px;
+}
+
+/* Add a wrapper for the background animation */
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: var(--text-light);
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--link-color-light);
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+  transform: translateY(-3px);
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.logo:hover {
+  cursor: default;
+}
+
+/* HAMBURGER MENU */
+
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 80vh;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* BUTTONS */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  background: var(--button-background-light);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-color-1,
+.btn-color-2 {
+  border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.btn-color-1:hover {
+  background: rgb(0, 0, 0);
+}
+
+.btn-color-2 {
+  background: none;
+}
+
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container {
+  gap: 1rem;
+}
+
+/* ABOUT SECTION */
+
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.details-container:hover {
+  transform: translateY(-5px);
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+.section__pic-container {
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+/* EXPERIENCE SECTION */
+
+#experience {
+  position: relative;
+}
+
+.experience-sub-title {
+  color: rgb(85, 85, 85);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+  position: relative;
+}
+
+.color-container {
+  border-color: rgb(163, 163, 163);
+  background: rgb(250, 250, 250);
+}
+
+.project-img {
+  border-radius: 2rem;
+  width: 90%;
+  height: 90%;
+}
+
+.project-title {
+  margin: 1rem;
+  color: black;
+}
+
+.project-btn {
+  color: black;
+  border-color: rgb(163, 163, 163);
+}
+
+/* CONTACT */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  background: (250, 250, 250);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .nav-links a {
+    color: var(--link-color-dark);
+}
+
+body.dark-mode .btn {
+    background: var(--button-background-dark);
+    color: white;
+}
+
+body.dark-mode .btn-color-1 {
+    background: rgb(53, 53, 53);
+    color: white;
+}
+
+body.dark-mode .btn-color-2 {
+    background: rgb(100, 100, 100);
+    color: white;
+}
+
+/* Ensure text inside containers is visible in dark mode */
+body.dark-mode .details-container,
+body.dark-mode .about-details-container,
+body.dark-mode .section__text,
+body.dark-mode .text-container {
+    color: white; /* Set text color to white for visibility */
+    background: rgb(30, 30, 30); /* Optional: Set a dark background for containers */
+}
+
+/* Ensure normal text is visible in dark mode */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: white; /* Set normal text color to white for visibility */
+}
+
+/* Skills Section Styles */
+.skills-container {
+  display: flex;
+  justify-content: space-around; /* Space out skill categories */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  margin: 2rem 0; /* Margin for spacing */
+}
+
+.skill-category {
+  flex: 1; /* Allow categories to grow */
+  margin: 1rem; /* Margin for spacing */
+  min-width: 250px; /* Minimum width for responsiveness */
+  background: rgba(255, 255, 255, 0.9); /* Light background for the category box */
+  border-radius: 1rem; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  padding: 1rem; /* Padding inside the category box */
+}
+
+.skill-card {
+  background: white; /* Card background */
+  border-radius: 1rem; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  padding: 1rem; /* Padding inside the card */
+  margin: 0.5rem 0; /* Margin between cards */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+  display: flex; /* Flexbox for icon and text */
+  align-items: center; /* Center items vertically */
+}
+
+.skill-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.skill-card img {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Ensure skill text is visible in dark mode */
+body.dark-mode .skill-card {
+    color: white; /* Set text color to white for visibility */
+}
+
+/* Ensure text inside skill categories is visible in dark mode */
+body.dark-mode .skill-category {
+    color: white; /* Set text color to white for visibility */
+}
+
+/* Ensure text inside specific skill cards is visible in dark mode */
+body.dark-mode .skill-card h3,
+body.dark-mode .skill-card p {
+    color: white; /* Set text color to white for visibility */
+}
+
+/* Add this animation for text appearance */
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation to text elements */
+.title,
+.section__text p,
+.experience-sub-title,
+.project-title,
+.about-details-container p {
+    animation: textFadeIn 0.8s ease forwards; /* Adjust duration and easing as needed */
+    opacity: 0; /* Ensure it starts invisible */
+}
+
+/* You can also add a delay for staggered effect */
+.title {
+    animation-delay: 0.2s;
+}
+
+.section__text p {
+    animation-delay: 0.4s;
+}
+
+.experience-sub-title {
+    animation-delay: 0.6s;
+}
+
+.project-title {
+    animation-delay: 0.8s;
+}
+
+.about-details-container p {
+    animation-delay: 1s;
+}
+
+/* Add this animation for looping text appearance with 3D effect */
+@keyframes textFadeInOut3D {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) rotateY(20deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) rotateY(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) rotateY(-20deg);
+    }
+}
+
+/* Class to apply the animation */
+.loop-animation {
+    animation: textFadeInOut3D 2s ease-in-out infinite; /* Looping animation with 3D effect */
+}
+
+/* General 3D Text */
+.text-3d {
+  font-size: 1.2rem;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.text-3d:hover {
+  transform: translateY(-3px);
+}
+
+/* Highlighted Text */
+.highlight {
+  color: #f48c06;
+  font-weight: bold;
+}
+
+/* 3D Experience Card */
+.experience-card-3d {
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 5px 5px 15px #a3a3a3, -5px -5px 15px #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.experience-card-3d:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 20px #a3a3a3, -8px -8px 20px #ffffff;
+}
+
+.company-title {
+  font-size: 1.5rem;
+  color: #333;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Skills List 3D */
+.skills-list-3d {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list-3d li {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skills-list-3d li:hover {
+  transform: translateX(10px);
+}
+
+/* Experience Line Style */
+.experience-line {
+  font-size: 1.1rem; /* Adjust font size for the line */
+  color: #333; /* Text color */
+  margin: 10px 0; /* Margin for spacing */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* About Me Section Styles */
+.about-me-section {
+  margin: 2rem 0; /* Margin for spacing */
+}
+
+.section-title {
+  font-size: 2rem; /* Title font size */
+  color: #333; /* Title color */
+  margin-bottom: 1rem; /* Space below the title */
+}
+
+.about-text {
+  font-size: 1.1rem; /* Text font size */
+  color: #555; /* Text color */
+  margin: 10px 0; /* Margin for spacing */
+}
+
+.skills-summary {
+  font-weight: bold; /* Bold for emphasis */
+  margin-top: 1rem; /* Space above the skills summary */
+}
